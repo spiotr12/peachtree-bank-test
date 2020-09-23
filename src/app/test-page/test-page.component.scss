@@ -1,0 +1,15 @@
+:host.pbt-test-page {
+  display: flex;
+  height: 100%;
+}
+
+
+.pbt-test-page {
+  &__transfer {
+  }
+
+  &__history {
+    margin-left: 2rem;
+    flex-grow: 1;
+  }
+}
