@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { ITransactionRecord, SortField } from 'src/app/models';
 import { Store } from '@ngrx/store';
 import { AppActions, FromAppState } from 'src/app/+state';
-import { take } from 'rxjs/operators';
+import { map, startWith, take } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { SearchService } from 'src/app/services/search';
 
 
 /**
@@ -17,6 +19,8 @@ import { take } from 'rxjs/operators';
 })
 export class TransactionsHistoryComponent {
 
+  public searchField = new FormControl('');
+
   public transactions$: Observable<ITransactionRecord[]>;
 
   @HostBinding('class.pbt-transactions-history')
@@ -24,8 +28,16 @@ export class TransactionsHistoryComponent {
 
   private sort$: Observable<{ sortDirection: number; sortField: SortField }>;
 
-  constructor(private store: Store) {
-    this.transactions$ = this.store.select(FromAppState.getTransactions);
+  constructor(private store: Store,
+              private searchService: SearchService) {
+    this.transactions$ = combineLatest([
+      this.searchField.valueChanges.pipe(startWith('')),
+      this.store.select(FromAppState.getTransactions),
+    ]).pipe(
+      map(([search, transactions]) => {
+        return search ? this.searchService.filterTransactions(search, transactions) : transactions;
+      }),
+    );
     this.sort$ = this.store.select(FromAppState.getSort);
   }
 
@@ -39,7 +51,6 @@ export class TransactionsHistoryComponent {
   }
 
   public sortByBeneficiary(): void {
-
     this.sort$.pipe(
       take(1),
     ).subscribe((sort) => {

@@ -5,6 +5,7 @@ import { TestPageRoutingModule } from './test-page-routing.module';
 import { PanelModule, TransactionListItemModule } from 'src/app/components';
 import { TransactionsHistoryComponent } from './transactions-history';
 import { TransferFormComponent } from './transfer-form';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,8 @@ import { TransferFormComponent } from './transfer-form';
   imports: [
     CommonModule,
     TestPageRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     PanelModule,
     TransactionListItemModule,
   ],
