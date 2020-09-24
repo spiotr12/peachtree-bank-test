@@ -4,10 +4,21 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-en": "ng serve --configuration en",
+    "start-pl": "ng serve --configuration pl",
     "build": "ng build",
+    "build-localize": "ng build --localize",
+    "build-en": "ng build --configuration en",
+    "build-pl": "ng build --configuration pl",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract-i18n": "npm run _i18n && npm run _extract-i18n-from-code",
+    "combine-i18n": "npm run _merge-xlf && npm run _xliffmerge",
+    "_i18n": "ng xi18n peachtree-bank-test --format xlf2 --output-path src/i18n --progress",
+    "_extract-i18n-from-code": "node scripts/extract-localization-from-code.js",
+    "_merge-xlf": "node scripts/merge-xlf.js src/i18n/custom.xlf --main src/i18n/messages.xlf --output src/i18n/messages.xlf",
+    "_xliffmerge": "ng run peachtree-bank-test:xliffmerge"
   },
   "private": true,
   "dependencies": {
@@ -32,10 +43,15 @@
     "@angular-devkit/build-angular": "~0.1001.2",
     "@angular/cli": "~10.1.2",
     "@angular/compiler-cli": "~10.1.2",
-    "@types/node": "^12.11.1",
+    "@angular/localize": "^10.1.2",
+    "@locl/cli": "^1.0.0",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
+    "@ngx-i18nsupport/tooling": "^8.0.3",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "command-line-args": "^5.1.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -43,9 +59,11 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "pretty-data": "^0.40.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "xml2json": "^0.12.0"
   }
 }

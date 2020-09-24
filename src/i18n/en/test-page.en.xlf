@@ -1,0 +1,13 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="en">
+  <file original="ng.template" id="locl">
+    <unit id="test-page.recent-transaction.title">
+      <notes>
+        <note category="description">recent transaction title</note>
+      </notes>
+      <segment>
+        <source>Recent Transactions</source>
+        <target>Recent Transactions</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

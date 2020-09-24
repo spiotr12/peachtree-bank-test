@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from 'src/environments/environment';
-import { APP_STORE_KEY, AppEffects, appReducer } from './+state';
+import { AppEffects, REDUCERS_TOKEN } from './+state';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,9 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({
-      [APP_STORE_KEY]: appReducer,
-    }),
+    StoreModule.forRoot(REDUCERS_TOKEN),
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

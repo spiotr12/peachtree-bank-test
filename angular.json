@@ -13,6 +13,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "pbt",
+      "i18n": {
+        "locales": {
+          "en": "src/i18n/messages.en.xlf",
+          "pl": "src/i18n/messages.pl.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -60,6 +66,24 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en": {
+              "localize": [
+                "en"
+              ],
+              "outputPath": "dist/peachtree-bank-test-localized",
+              "i18nFile": "src/i18n/messages.en.xlf",
+              "i18nFormat": "xlf2",
+              "i18nLocale": "en"
+            },
+            "pl": {
+              "localize": [
+                "pl"
+              ],
+              "outputPath": "dist/peachtree-bank-test-localized",
+              "i18nFile": "src/i18n/messages.pl.xlf",
+              "i18nFormat": "xlf2",
+              "i18nLocale": "pl"
             }
           }
         },
@@ -71,6 +95,12 @@
           "configurations": {
             "production": {
               "browserTarget": "peachtree-bank-test:build:production"
+            },
+            "en": {
+              "browserTarget": "peachtree-bank-test:build:en"
+            },
+            "pl": {
+              "browserTarget": "peachtree-bank-test:build:pl"
             }
           }
         },
@@ -121,8 +151,25 @@
               "devServerTarget": "peachtree-bank-test:serve:production"
             }
           }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf2",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "beautifyOutput": true,
+              "defaultLanguage": "en",
+              "languages": [
+                "en",
+                "pl"
+              ]
+            }
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "peachtree-bank-test"
 }
