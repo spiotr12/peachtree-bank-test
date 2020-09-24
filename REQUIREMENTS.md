@@ -52,7 +52,7 @@ As a user I should be able to:
 Non-functional requirements (bonus points):
 
 - ~~The Sorting order (ascending/descending) should be persistent across all sorting options; i.e. If you are sorting by beneficiary ASC and switch the sorting option to Amount, the sorting order should stay ASC~~
-- i18n: add multi-language support
+- ~~i18n: add multi-language support~~
 - a11y: WCAG level A
 - ~~Share your solution on the remote repository; i.e. Github, Bitbucket, GitLab...~~
 - deploy to a static hosting platform of your choice; i.e. Netlify, Firebase, Vercel, Github pages or Heroku
@@ -63,14 +63,14 @@ Non-functional requirements (bonus points):
 
 ### Read Carefully!
 
-- Architect your application any way you want, focus on clean, reusable code. Your code should be DRY, with a focus on front-end best practices.
-- We are open to seeing applications written in any modern framework, but we prefer the latest Angular. Explain why you've chosen a different framework in the README.
+- ~~Architect your application any way you want, focus on clean, reusable code. Your code should be DRY, with a focus on front-end best practices.~~
+- ~~We are open to seeing applications written in any modern framework, but we prefer the latest Angular. Explain why you've chosen a different framework in the README.~~
 - ~~You can use any CSS framework, but we prefer if you don't.~~
 - ~~Responsiveness is required in this assignment.~~
-- Create a "README.md" file explaining:
-    - how to set up and run/test the app
-    - choice of the framework (if not Angular)
-    - application structure
+- ~~Create a "README.md" file explaining:~~
+    - ~~how to set up and run/test the app~~
+    - ~~choice of the framework (if not Angular)~~
+    - ~~application structure~~
 
 ## Helpful Information
 

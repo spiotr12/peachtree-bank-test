@@ -2,13 +2,37 @@
 
 Run as normal angular app `npm run start`
 
+To get localized version run `npm run serve-<lang-code>`
+
+## Build
+
+Build as normal angular app `npm run start`
+
+To get localized version run `npm run build-<lang-code>`
+
 ## Test
 
 Test as normal angular app `npm run test`
 
 ## Structure
 
-TODO
+```
+src/
+  assets/           - all graphis
+  i18n/             - translations
+  styles/           - styles
+  app/              - app
+    +state/         - redux files
+    components/     - generic components
+    models/         - enums | interfaces
+    pipes/          - global pipes
+    services/       - global services
+    test-page/      - main code for this test app | lazy loaded module 
+                      - includes partial components
+                      - includes confirmation dialog
+    validators/     - form validators
+
+```
 
 ## Notes
 
@@ -19,5 +43,5 @@ TODO
 1. Confirmation Dialog
     - MatDialog was used as the requirements had not specified if this should be a page or dialog (no mocks)
 1. `scripts/` directory
-    - `scripts/` directory contains helpful utils created by myself used for generating and merging i18n 
-    translations. Please do not copy those.
+    - `scripts/` directory contains helpful utils created by myself (for other project used for generating and 
+    merging i18n translations. Please do not copy those.
