@@ -14,7 +14,7 @@
   <pbt-transaction-list-item *ngFor="let transaction of transactions$ | async"
                              [color]="transaction?.categoryCode"
                              [date]="transaction?.dates?.valueDate"
-                             [image]="null"
+                             [image]="'assets/beneficiaries-icons/' + (transaction?.merchant?.name | nameToImage)"
                              [beneficiary]="transaction?.merchant.name"
                              [paymentType]="transaction?.transaction?.type"
                              [amount]="transaction?.transaction?.amountCurrency?.amount"></pbt-transaction-list-item>

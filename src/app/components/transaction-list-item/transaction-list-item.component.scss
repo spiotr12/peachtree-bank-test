@@ -27,6 +27,11 @@ $height: 3.5rem;
 
   &__image {
     margin-left: 1rem;
+
+    img {
+      margin-top: .5rem;
+      height: $height - 1rem;
+    }
   }
 
   &__label {

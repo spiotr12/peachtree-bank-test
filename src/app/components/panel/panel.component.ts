@@ -19,7 +19,7 @@ export class PanelComponent {
   public title: any;
 
   /**
-   * Icon file name in assets/icons
+   * Icon file
    */
   @Input()
   public icon: any;
