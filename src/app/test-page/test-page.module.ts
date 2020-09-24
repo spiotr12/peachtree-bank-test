@@ -7,6 +7,7 @@ import { PanelModule, TransactionListItemModule } from 'src/app/components';
 import { TransactionsHistoryComponent } from './transactions-history';
 import { TransferFormComponent } from './transfer-form';
 import { NameToImageModule } from 'src/app/pipes';
+import { SortIndicatorModule } from 'src/app/components/sort-indicator';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NameToImageModule } from 'src/app/pipes';
     PanelModule,
     TransactionListItemModule,
     NameToImageModule,
+    SortIndicatorModule,
   ],
 })
 export class TestPageModule {}

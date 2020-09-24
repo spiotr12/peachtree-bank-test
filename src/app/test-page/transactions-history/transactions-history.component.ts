@@ -19,14 +19,16 @@ import { SearchService } from 'src/app/services/search';
 })
 export class TransactionsHistoryComponent {
 
-  public searchField = new FormControl('');
+  public readonly SortField = SortField;
 
-  public transactions$: Observable<ITransactionRecord[]>;
+  public readonly searchField = new FormControl('');
+
+  public readonly transactions$: Observable<ITransactionRecord[]>;
+
+  public readonly sort$: Observable<{ sortDirection: number; sortField: SortField; }>;
 
   @HostBinding('class.pbt-transactions-history')
   private readonly mainCSSClass = true;
-
-  private sort$: Observable<{ sortDirection: number; sortField: SortField }>;
 
   constructor(private store: Store,
               private searchService: SearchService) {
@@ -41,30 +43,12 @@ export class TransactionsHistoryComponent {
     this.sort$ = this.store.select(FromAppState.getSort);
   }
 
-  public sortByDate(): void {
+  public sort(sortField: SortField): void {
     this.sort$.pipe(
       take(1),
     ).subscribe((sort) => {
-      const direction = sort.sortField === SortField.Date ? sort.sortDirection * -1 : 1;
-      this.store.dispatch(AppActions.sortTransactions({ sortField: SortField.Date, sortDirection: direction }));
-    });
-  }
-
-  public sortByBeneficiary(): void {
-    this.sort$.pipe(
-      take(1),
-    ).subscribe((sort) => {
-      const direction = sort.sortField === SortField.Beneficiary ? sort.sortDirection * -1 : 1;
-      this.store.dispatch(AppActions.sortTransactions({ sortField: SortField.Beneficiary, sortDirection: direction }));
-    });
-  }
-
-  public sortByAmount(): void {
-    this.sort$.pipe(
-      take(1),
-    ).subscribe((sort) => {
-      const direction = sort.sortField === SortField.Amount ? sort.sortDirection * -1 : 1;
-      this.store.dispatch(AppActions.sortTransactions({ sortField: SortField.Amount, sortDirection: direction }));
+      const direction = sort.sortField === sortField ? sort.sortDirection * -1 : -1;
+      this.store.dispatch(AppActions.sortTransactions({ sortField, sortDirection: direction }));
     });
   }
 }

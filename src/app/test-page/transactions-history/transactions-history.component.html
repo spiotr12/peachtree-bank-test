@@ -5,9 +5,18 @@
   <span class="spacer"></span>
   <span class="pbt-transactions-history__sort-label">Sort by</span>
   <div class="buttons-group">
-    <button class="button" (click)="sortByDate()">Date</button>
-    <button class="button" (click)="sortByBeneficiary()">Beneficiary</button>
-    <button class="button" (click)="sortByAmount()">Amount</button>
+    <button class="button" (click)="sort(SortField.Date)">Date
+      <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Date"
+                          [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
+    </button>
+    <button class="button" (click)="sort(SortField.Beneficiary)">Beneficiary
+      <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Beneficiary"
+                          [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
+    </button>
+    <button class="button" (click)="sort(SortField.Amount)">Amount
+      <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Amount"
+                          [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
+    </button>
   </div>
 </div>
 <div class="pbt-transactions-history__list">

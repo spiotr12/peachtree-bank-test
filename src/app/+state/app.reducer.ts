@@ -21,6 +21,10 @@ const reducer = createReducer(
     ...state,
     ...{ sortField, sortDirection },
   })),
+  on(AppActions.resetSort, (state) => ({
+    ...state,
+    ...{ sortField: null, sortDirection: 0 },
+  })),
 );
 
 export function appReducer(state: IAppStore, action: Action): IAppStore {
