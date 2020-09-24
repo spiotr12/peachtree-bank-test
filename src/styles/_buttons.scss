@@ -2,6 +2,9 @@
 @use './utils';
 
 .buttons-group {
+  display: flex;
+  flex-wrap: nowrap;
+
   .button:not(:first-of-type) {
     border-left: none;
   }

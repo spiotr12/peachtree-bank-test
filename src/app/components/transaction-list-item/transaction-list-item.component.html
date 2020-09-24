@@ -1,0 +1,11 @@
+<div class="pbt-transaction-list-item__row">
+  <div class="pbt-transaction-list-item__color" [style.background-color]="color"></div>
+  <div class="pbt-transaction-list-item__date">{{date | date}}</div>
+  <div class="pbt-transaction-list-item__image"><img [src]="'assets/images/' + image" [alt]="image"></div>
+  <div class="pbt-transaction-list-item__label">
+    <span class="pbt-transaction-list-item__beneficiary">{{beneficiary}}</span>
+    <span class="pbt-transaction-list-item__payment-type">{{paymentType}}</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="pbt-transaction-list-item__amount">{{amount | currency}}</div>
+</div>

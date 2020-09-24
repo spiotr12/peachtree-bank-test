@@ -1,0 +1,55 @@
+$border-size: 1px;
+$height: 3.5rem;
+
+:host.pbt-transaction-list-item {
+  display: block;
+
+  border: $border-size solid #cdcdcd;
+}
+
+.pbt-transaction-list-item {
+  &__row {
+    display: flex;
+    flex-wrap: nowrap;
+
+    height: $height;
+    line-height: $height;
+  }
+
+  &__color {
+    margin: -$border-size 0 -$border-size -$border-size;
+    width: .5rem;
+  }
+
+  &__date {
+    margin-left: 1rem;
+  }
+
+  &__image {
+    margin-left: 1rem;
+  }
+
+  &__label {
+    margin-left: 1rem;
+    padding-top: .75rem;
+
+    & > * {
+      display: block;
+      line-height: 1rem;
+    }
+  }
+
+  &__beneficiary {
+    font-weight: bold;
+    word-spacing: .15rem;
+  }
+
+  &__payment-type {
+    font-size: .8rem;
+  }
+
+  &__amount {
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+}

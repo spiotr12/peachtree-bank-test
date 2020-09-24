@@ -6,6 +6,9 @@
 .pbt-transactions-history {
   &__toolbar {
     display: flex;
+    flex-wrap: nowrap;
+
+    margin-bottom: 1rem;
 
     & > * {
       line-height: 2rem;
@@ -13,10 +16,6 @@
 
     .form__group {
       margin: 0;
-    }
-
-    .spacer {
-      flex: 1 1 auto;
     }
   }
 
