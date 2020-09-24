@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { FromAppState } from 'src/app/+state';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { accountOverdraftLimitAsyncValidator } from 'src/app/validators';
 
 
 /**
@@ -32,6 +33,7 @@ export class TransferFormComponent {
 
   constructor(private store: Store) {
     this.balance$ = this.store.select(FromAppState.getBalance);
+    this.form.controls.amount.setAsyncValidators(accountOverdraftLimitAsyncValidator(this.balance$, -500));
   }
 
   public submit(): void {
