@@ -5,14 +5,15 @@
   <span class="spacer"></span>
   <span class="pbt-transactions-history__sort-label">Sort by</span>
   <div class="buttons-group">
-    <button class="button">Date</button>
-    <button class="button">Beneficiary</button>
-    <button class="button">Amount</button>
+    <button class="button" (click)="sortByDate()">Date</button>
+    <button class="button" (click)="sortByBeneficiary()">Beneficiary</button>
+    <button class="button" (click)="sortByAmount()">Amount</button>
   </div>
 </div>
 <div class="pbt-transactions-history__list">
   <pbt-transaction-list-item *ngFor="let transaction of transactions$ | async"
                              [color]="transaction?.categoryCode"
+                             [date]="transaction?.dates?.valueDate"
                              [image]="null"
                              [beneficiary]="transaction?.merchant.name"
                              [paymentType]="transaction?.transaction?.type"

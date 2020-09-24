@@ -1,4 +1,4 @@
 export interface IAmountCurrency {
-  amount: string | number;
+  amount: number;
   currencyCode: string;
 }

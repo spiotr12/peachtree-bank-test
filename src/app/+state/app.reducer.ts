@@ -7,6 +7,8 @@ export const APP_STORE_KEY = 'app';
 
 const initialState: IAppStore = {
   transactions: null,
+  sortDirection: 0,
+  sortField: null,
 };
 
 const reducer = createReducer(
@@ -14,6 +16,10 @@ const reducer = createReducer(
   on(AppActions.loadTransactions, (state, { transactions }) => ({
     ...state,
     ...{ transactions },
+  })),
+  on(AppActions.sortTransactions, (state, { sortDirection, sortField }) => ({
+    ...state,
+    ...{ sortField, sortDirection },
   })),
 );
 

@@ -10,4 +10,9 @@ export class FromAppState {
     featureSelector,
     (state) => state.transactions,
   );
+
+  public static getSort = createSelector(
+    featureSelector,
+    (state) => ({ sortField: state.sortField, sortDirection: state.sortDirection }),
+  );
 }
