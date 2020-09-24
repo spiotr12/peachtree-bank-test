@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { FromAppState } from 'src/app/+state';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 /**
@@ -12,8 +16,29 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 })
 export class TransferFormComponent {
 
+  /**
+   * Current balance stream
+   */
+  public readonly balance$: Observable<number>;
+
+  public readonly form: FormGroup = new FormGroup({
+    fromAccount: new FormControl(null, { validators: [Validators.required] }),
+    toAccount: new FormControl(null, { validators: [Validators.required] }),
+    amount: new FormControl(null, { validators: [Validators.required, Validators.min(0)] }),
+  });
+
   @HostBinding('class.pbt-transfer-form')
   private readonly mainCSSClass = true;
 
-  constructor() { }
+  constructor(private store: Store) {
+    this.balance$ = this.store.select(FromAppState.getBalance);
+  }
+
+  public submit(): void {
+    if (this.form.valid) {
+      console.log('form valid');
+    } else {
+      console.error('form invalid');
+    }
+  }
 }

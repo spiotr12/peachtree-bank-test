@@ -15,4 +15,12 @@ export class FromAppState {
     featureSelector,
     (state) => ({ sortField: state.sortField, sortDirection: state.sortDirection }),
   );
+
+  public static getBalance = createSelector(
+    featureSelector,
+    (state) => +state.transactions?.reduce(
+      (acc, cur) => acc + cur?.transaction?.amountCurrency?.amount || 0,
+      0,
+    ).toFixed(2),
+  );
 }
