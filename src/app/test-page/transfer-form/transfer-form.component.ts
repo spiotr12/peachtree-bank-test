@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 
+/**
+ * Component that handles transfer form
+ */
 @Component({
   selector: 'pbt-transfer-form',
   templateUrl: './transfer-form.component.html',

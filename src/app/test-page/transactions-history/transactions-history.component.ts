@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 
+/**
+ * Component that handles transactions history
+ */
 @Component({
   selector: 'pbt-transactions-history',
   templateUrl: './transactions-history.component.html',
@@ -13,4 +16,5 @@ export class TransactionsHistoryComponent {
   private readonly mainCSSClass = true;
 
   constructor() { }
+
 }

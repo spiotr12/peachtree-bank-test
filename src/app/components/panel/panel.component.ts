@@ -1,16 +1,26 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 
+/**
+ * Panel component with header containing title and icon
+ */
 @Component({
   selector: 'pbt-panel',
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PanelComponent implements OnInit {
+export class PanelComponent {
 
+  /**
+   * Title
+   */
   @Input()
   public title: any;
 
+  /**
+   * Icon file name in assets/icons
+   */
   @Input()
   public icon: any;
 
@@ -18,8 +28,5 @@ export class PanelComponent implements OnInit {
   private readonly mainCSSClass = true;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

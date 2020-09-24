@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 
+/**
+ * Main component
+ */
 @Component({
   selector: 'pbt-root',
   templateUrl: './app.component.html',
