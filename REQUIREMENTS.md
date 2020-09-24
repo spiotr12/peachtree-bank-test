@@ -12,7 +12,7 @@ For this assignment, you need to develop a single page application according to 
 
 ### Transfer Money
 
-As a user, I should be able to transfer money using the Transfer Money form as shown in the UI Design.
+~~As a user, I should be able to transfer money using the Transfer Money form as shown in the UI Design.~~
 
 ---
 
@@ -20,9 +20,9 @@ As a user I should be able to:
 
 1. ~~Fill in the "TO ACCOUNT" and "AMOUNT" fields of the form.~~
     - ~~Assume that the "FROM ACCOUNT" field is pre-filled with the data shown in the UI Design and is DISABLED.~~
-2. Press "Submit" and preview the entered data.
-3. Press "Transfer" on the preview screen. 
-    - When the transfer is pressed the new transfer should appear at the top of the transactions list, and the balance in the "FROM ACCOUNT" field should have decreased by the amount of the transfer.
+2. ~~Press "Submit" and preview the entered data.~~
+3. ~~Press "Transfer" on the preview screen.~~ 
+    - ~~When the transfer is pressed the new transfer should appear at the top of the transactions list, and the balance in the "FROM ACCOUNT" field should have decreased by the amount of the transfer.~~
 
 Non-functional requirements:
 

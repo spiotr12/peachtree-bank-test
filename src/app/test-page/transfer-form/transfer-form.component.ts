@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { FromAppState } from 'src/app/+state';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { accountOverdraftLimitAsyncValidator } from 'src/app/validators';
 import { TransactionService } from 'src/app/services/transaction';
 import { ITransactionRecord } from 'src/app/models';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog';
+import { switchMap } from 'rxjs/operators';
 
 
 /**
@@ -34,7 +37,8 @@ export class TransferFormComponent {
   private readonly mainCSSClass = true;
 
   constructor(private store: Store,
-              private transactionService: TransactionService) {
+              private transactionService: TransactionService,
+              private dialog: MatDialog) {
     this.balance$ = this.store.select(FromAppState.getBalance);
     this.form.controls.amount.setAsyncValidators(accountOverdraftLimitAsyncValidator(this.balance$, -500));
   }
@@ -43,15 +47,14 @@ export class TransferFormComponent {
     if (this.form.valid) {
       const transaction = this.prepareTransaction(this.form.value);
 
-      // Simulate "preview" process
-      const proceed = confirm(JSON.stringify(transaction, null, 4));
+      const confirmDialog = this.dialog.open(ConfirmDialogComponent, {
+        data: transaction,
+      });
 
-      if (!proceed) {
-        return;
-      }
-
-      this.transactionService.createTransaction(transaction).subscribe(() => {
-        this.form.reset();
+      confirmDialog.afterClosed().pipe(
+        switchMap((result) => result ? this.transactionService.createTransaction(transaction) : of()),
+      ).subscribe((result) => {
+        if (result) { this.form.reset(); }
       });
     } else {
       alert('form invalid');

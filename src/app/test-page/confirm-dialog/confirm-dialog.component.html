@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Confirm transaction</h1>
+<div mat-dialog-content>
+  <p>From: {{transaction.transaction.type}}</p>
+  <p>To: {{transaction.merchant.name}}</p>
+  <p>Amount: {{transaction.transaction | parseAmount | currency}}</p>
+</div>
+<div mat-dialog-actions>
+  <div class="buttons-group">
+    <button class="button" (click)="cancel()">Cancel</button>
+    <button class="button" (click)="transfer()">Transfer</button>
+  </div>
+</div>
