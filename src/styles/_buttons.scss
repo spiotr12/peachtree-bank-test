@@ -1,0 +1,16 @@
+@use './variables';
+@use './utils';
+
+.buttons-group {
+  .button:not(:first-of-type) {
+    border-left: none;
+  }
+}
+
+.button {
+  @include utils.resetButtonDefaults();
+  padding: .5rem 1.5rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid variables.$border-color;
+}

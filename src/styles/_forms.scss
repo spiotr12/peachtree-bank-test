@@ -1,20 +1,14 @@
-@mixin resetButtonDefaults() {
-  margin: 0;
-  padding: 0;
-  border: none;
-
-  &:focus {
-    outline: none;
-  }
-}
+@use './variables';
+@use './utils';
 
 .form {
   &__group {
-    display: block;
+    display: inline-block;
 
     margin-bottom: 1rem;
 
     &--stretch {
+      display: block;
       width: 100%;
 
       .form__field,
@@ -35,9 +29,9 @@
 
   &__field {
     display: block;
-    @include resetButtonDefaults();
+    @include utils.resetButtonDefaults();
 
     line-height: 1.5rem;
-    border-bottom: 1px solid #d6d2ce;
+    border-bottom: 1px solid variables.$border-color;
   }
 }

@@ -1,0 +1,31 @@
+:host.pbt-transactions-history {
+  display: block;
+  padding: 1.5rem 1rem;
+}
+
+.pbt-transactions-history {
+  &__toolbar {
+    display: flex;
+
+    & > * {
+      line-height: 2rem;
+    }
+
+    .form__group {
+      margin: 0;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__sort-label {
+    font-size: .7rem;
+    font-weight: bold;
+    padding: 0 1rem;
+  }
+
+  &__list {
+  }
+}
