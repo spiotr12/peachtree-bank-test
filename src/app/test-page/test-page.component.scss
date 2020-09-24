@@ -3,13 +3,23 @@
   height: 100%;
 }
 
-
 .pbt-test-page {
+  &__column {
+
+    &--stretch {
+      flex-grow: 1;
+    }
+  }
+
   &__transfer {
   }
 
   &__history {
     margin-left: 2rem;
     flex-grow: 1;
+
+    pbt-panel{
+      width: 100%;
+    }
   }
 }

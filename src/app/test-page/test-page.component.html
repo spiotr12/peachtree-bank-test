@@ -1,2 +1,10 @@
-<pbt-panel class="pbt-test-page__transfer" title="Make a Transfer" icon="arrows.png"></pbt-panel>
-<pbt-panel class="pbt-test-page__history" title="Recent Transactions" icon="briefcase.png"></pbt-panel>
+<div class="pbt-test-page__column pbt-test-page__transfer">
+  <pbt-panel title="Make a Transfer" icon="arrows.png">
+    <pbt-transfer-form></pbt-transfer-form>
+  </pbt-panel>
+</div>
+<div class="pbt-test-page__column pbt-test-page__column--stretch pbt-test-page__history">
+  <pbt-panel title="Recent Transactions" icon="briefcase.png">
+    <pbt-transactions-history></pbt-transactions-history>
+  </pbt-panel>
+</div>

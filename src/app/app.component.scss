@@ -1,15 +1,20 @@
 :host.pbt-root {
+  $padding-v: 3rem;
+  $padding-h: 4rem;
+
   display: block;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - #{$padding-v} * 2);
+  width: calc(100% - #{$padding-h} * 2);
   max-height: 100%;
   max-width: 100%;
 
-  overflow: auto;
+  //overflow: auto;
+  padding: $padding-v $padding-h;
 }
 
 .pbt-root {
   &__main {
-    margin: 3rem 4rem;
+    height: 100%;
+    width: 100%;
   }
 }
