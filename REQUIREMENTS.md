@@ -27,7 +27,7 @@ As a user I should be able to:
 Non-functional requirements:
 
 - Reset the form to its initial state after the transfer has been completed successfully.
-- A user shouldn't be able to overdraft their account beyond a balance of $ -500.00.
+- ~~A user shouldn't be able to overdraft their account beyond a balance of $ -500.00.~~
 
 ### Transaction History
 

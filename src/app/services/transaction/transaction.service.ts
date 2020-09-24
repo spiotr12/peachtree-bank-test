@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
+import { map, take, tap } from 'rxjs/operators';
 import { ITransactionRecord } from 'src/app/models';
-import * as transactions from 'src/mock/transactions.json';
-import { map } from 'rxjs/operators';
+import { AppActions, FromAppState } from 'src/app/+state';
+import * as jsonTransactions from 'src/mock/transactions.json';
 
 
 @Injectable({
@@ -10,20 +12,58 @@ import { map } from 'rxjs/operators';
 })
 export class TransactionService {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   public getTransactions(): Observable<ITransactionRecord[]> {
-    return of([...transactions.data] as any[]).pipe(
+    return of([...jsonTransactions.data] as any[]).pipe(
       map((trans) => trans
-        .map((t) => {
-          // Map transaction date to Date
-          t.dates.valueDate = new Date(t.dates.valueDate);
-          // Map amount to number
-          const amountMod = t.transaction.creditDebitIndicator === 'DBIT' ? -1 : 1;
-          t.transaction.amountCurrency.amount = amountMod * Number(t.transaction.amountCurrency.amount);
-          return t;
-        }),
+        .map((t) => this.mapTransaction(t)),
       ),
     );
+  }
+
+  public createTransaction(data: { fromAccount: string, toAccount: string, amount: number }): Observable<ITransactionRecord> {
+    let transaction: ITransactionRecord = {
+      dates: {
+        valueDate: new Date(),
+      },
+      transaction: {
+        type: 'Card Payment',
+        creditDebitIndicator: 'DBIT',
+        amountCurrency: {
+          amount: data.amount,
+          currencyCode: 'EUR',
+        },
+      },
+      merchant: {
+        name: data.toAccount,
+        accountNumber: '0000 0000 0000 0000',
+      },
+      categoryCode: '#98C379',
+    };
+
+    transaction = this.mapTransaction(transaction);
+
+    return this.store.select(FromAppState.getTransactions).pipe(
+      take(1),
+      tap((transactions) => {
+        const trans = [...transactions];
+        trans.push(transaction);
+        // Simulate backend
+        // In real life application here we could call this.getTransactions()
+        // And update store
+        this.store.dispatch(AppActions.loadTransactions({ transactions: trans }));
+      }),
+      map(() => transaction),
+    );
+  }
+
+  private mapTransaction(transaction: ITransactionRecord | any): ITransactionRecord {
+    // Map transaction date to Date
+    transaction.dates.valueDate = new Date(transaction.dates.valueDate);
+    // Map amount to number
+    const amountMod = transaction.transaction.creditDebitIndicator === 'DBIT' ? -1 : 1;
+    transaction.transaction.amountCurrency.amount = amountMod * Number(transaction.transaction.amountCurrency.amount);
+    return transaction;
   }
 }

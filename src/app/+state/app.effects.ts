@@ -5,7 +5,7 @@ import { AppActions, AppActionTypes } from './app.actions';
 import { Store } from '@ngrx/store';
 import { FromAppState } from 'src/app/+state/app.selectors';
 import { of } from 'rxjs';
-import { SortService } from 'src/app/services';
+import { SortService } from 'src/app/services/sort';
 import { ITransactionRecord, SortField } from 'src/app/models';
 
 
