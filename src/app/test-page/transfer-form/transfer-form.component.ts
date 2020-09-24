@@ -5,6 +5,7 @@ import { FromAppState } from 'src/app/+state';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { accountOverdraftLimitAsyncValidator } from 'src/app/validators';
 import { TransactionService } from 'src/app/services/transaction';
+import { ITransactionRecord } from 'src/app/models';
 
 
 /**
@@ -40,11 +41,41 @@ export class TransferFormComponent {
 
   public submit(): void {
     if (this.form.valid) {
-      this.transactionService.createTransaction(this.form.value).subscribe(() => {
+      const transaction = this.prepareTransaction(this.form.value);
+
+      // Simulate "preview" process
+      const proceed = confirm(JSON.stringify(transaction, null, 4));
+
+      if (!proceed) {
+        return;
+      }
+
+      this.transactionService.createTransaction(transaction).subscribe(() => {
         this.form.reset();
       });
     } else {
-      console.error('form invalid');
+      alert('form invalid');
     }
+  }
+
+  private prepareTransaction(data: { fromAccount: string, toAccount: string, amount: number }): ITransactionRecord {
+    return {
+      dates: {
+        valueDate: new Date(),
+      },
+      transaction: {
+        type: data.fromAccount,
+        creditDebitIndicator: 'DBIT',
+        amountCurrency: {
+          amount: data.amount,
+          currencyCode: 'EUR',
+        },
+      },
+      merchant: {
+        name: data.toAccount,
+        accountNumber: '0000 0000 0000 0000',
+      },
+      categoryCode: '#98C379',
+    };
   }
 }

@@ -15,35 +15,10 @@ export class TransactionService {
   constructor(private store: Store) { }
 
   public getTransactions(): Observable<ITransactionRecord[]> {
-    return of([...jsonTransactions.data] as any[]).pipe(
-      map((trans) => trans
-        .map((t) => this.mapTransaction(t)),
-      ),
-    );
+    return of([...jsonTransactions.data] as any[]);
   }
 
-  public createTransaction(data: { fromAccount: string, toAccount: string, amount: number }): Observable<ITransactionRecord> {
-    let transaction: ITransactionRecord = {
-      dates: {
-        valueDate: new Date(),
-      },
-      transaction: {
-        type: data.fromAccount,
-        creditDebitIndicator: 'DBIT',
-        amountCurrency: {
-          amount: data.amount,
-          currencyCode: 'EUR',
-        },
-      },
-      merchant: {
-        name: data.toAccount,
-        accountNumber: '0000 0000 0000 0000',
-      },
-      categoryCode: '#98C379',
-    };
-
-    transaction = this.mapTransaction(transaction);
-
+  public createTransaction(transaction: ITransactionRecord): Observable<ITransactionRecord> {
     return this.store.select(FromAppState.getTransactions).pipe(
       take(1),
       tap((transactions) => {
@@ -56,11 +31,5 @@ export class TransactionService {
       }),
       map(() => transaction),
     );
-  }
-
-  private mapTransaction(transaction: ITransactionRecord | any): ITransactionRecord {
-    // Map transaction date to Date
-    // transaction.dates.valueDate = new Date(transaction.dates.valueDate);
-    return transaction;
   }
 }
