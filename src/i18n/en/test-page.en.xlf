@@ -18,5 +18,59 @@
         <target>Recent Transactions</target>
       </segment>
     </unit>
+    <unit id="confirmation-dialog.header">
+      <notes>
+        <note category="description">confirmation dialog header</note>
+      </notes>
+      <segment>
+        <source>Confirm transaction</source>
+        <target>Confirm transaction</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.from">
+      <notes>
+        <note category="description">from account</note>
+      </notes>
+      <segment>
+        <source>From: <ph id="1" equiv="INTERPOLATION"/></source>
+        <target>From: <ph id="1" equiv="INTERPOLATION"/></target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.to">
+      <notes>
+        <note category="description">to account</note>
+      </notes>
+      <segment>
+        <source>To: <ph id="1" equiv="INTERPOLATION"/></source>
+        <target>To: <ph id="1" equiv="INTERPOLATION"/></target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.amount">
+      <notes>
+        <note category="description">amount</note>
+      </notes>
+      <segment>
+        <source>Amount: <ph id="1" equiv="INTERPOLATION"/></source>
+        <target>Amount: <ph id="1" equiv="INTERPOLATION"/></target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.cancel">
+      <notes>
+        <note category="description">cancel button</note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.transfer">
+      <notes>
+        <note category="description">transfer button</note>
+      </notes>
+      <segment>
+        <source>Transfer</source>
+        <target>Transfer</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

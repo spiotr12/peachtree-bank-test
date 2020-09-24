@@ -1,4 +1,3 @@
-
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="en">
   <file original="ng.template" id="ngi18n">
     <unit id="test-page.make-a-transfer.title">
@@ -19,6 +18,81 @@
       <segment state="final">
         <source>Recent Transactions</source>
         <target>Recent Transactions</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.header">
+      <notes>
+        <note category="description">confirmation dialog header</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:1</note>
+      </notes>
+      <segment state="final">
+        <source>Confirm transaction</source>
+        <target>Confirm transaction</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.from">
+      <notes>
+        <note category="description">from account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:3</note>
+      </notes>
+      <segment state="final">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
+        </source>
+        <target>
+          From account:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.to">
+      <notes>
+        <note category="description">to account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:4</note>
+      </notes>
+      <segment state="final">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.merchant.name}}"/>
+        </source>
+        <target>
+          To account:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.merchant.name}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.amount">
+      <notes>
+        <note category="description">amount</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:5</note>
+      </notes>
+      <segment state="final">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction | parseAmount | currency}}"/>
+        </source>
+        <target>
+          Amount:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction | parseAmount | currency}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.cancel">
+      <notes>
+        <note category="description">cancel button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:9</note>
+      </notes>
+      <segment state="final">
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.transfer">
+      <notes>
+        <note category="description">transfer button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:10</note>
+      </notes>
+      <segment state="final">
+        <source>Transfer</source>
+        <target>Transfer</target>
       </segment>
     </unit>
   </file>

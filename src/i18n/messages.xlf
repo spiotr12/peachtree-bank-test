@@ -1,4 +1,3 @@
-
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file original="ng.template" id="ngi18n">
     <unit id="test-page.make-a-transfer.title">
@@ -17,6 +16,66 @@
       </notes>
       <segment>
         <source>Recent Transactions</source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.header">
+      <notes>
+        <note category="description">confirmation dialog header</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:1</note>
+      </notes>
+      <segment>
+        <source>Confirm transaction</source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.from">
+      <notes>
+        <note category="description">from account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:3</note>
+      </notes>
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.to">
+      <notes>
+        <note category="description">to account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:4</note>
+      </notes>
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.merchant.name}}"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.amount">
+      <notes>
+        <note category="description">amount</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:5</note>
+      </notes>
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction | parseAmount | currency}}"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.cancel">
+      <notes>
+        <note category="description">cancel button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:9</note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.transfer">
+      <notes>
+        <note category="description">transfer button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:10</note>
+      </notes>
+      <segment>
+        <source>Transfer</source>
       </segment>
     </unit>
   </file>

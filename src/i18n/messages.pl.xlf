@@ -20,5 +20,80 @@
         <target>Ostatnie tranzakcje</target>
       </segment>
     </unit>
+    <unit id="confirmation-dialog.header">
+      <notes>
+        <note category="description">confirmation dialog header</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:1</note>
+      </notes>
+      <segment state="initial">
+        <source>Confirm transaction</source>
+        <target>Zatwierdź tranzakcje</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.from">
+      <notes>
+        <note category="description">from account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:3</note>
+      </notes>
+      <segment state="initial">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
+        </source>
+        <target>
+          Z konta:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.to">
+      <notes>
+        <note category="description">to account</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:4</note>
+      </notes>
+      <segment state="initial">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.merchant.name}}"/>
+        </source>
+        <target>
+          Do:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.merchant.name}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.amount">
+      <notes>
+        <note category="description">amount</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:5</note>
+      </notes>
+      <segment state="initial">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction | parseAmount | currency}}"/>
+        </source>
+        <target>
+          Kwota:
+          <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction | parseAmount | currency}}"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.cancel">
+      <notes>
+        <note category="description">cancel button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:9</note>
+      </notes>
+      <segment state="initial">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+      </segment>
+    </unit>
+    <unit id="confirmation-dialog.content.transfer">
+      <notes>
+        <note category="description">transfer button</note>
+        <note category="location">src/app/test-page/confirm-dialog/confirm-dialog.component.html:10</note>
+      </notes>
+      <segment state="initial">
+        <source>Transfer</source>
+        <target>Transferuj</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

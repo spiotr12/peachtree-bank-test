@@ -1,12 +1,12 @@
-<h1 mat-dialog-title>Confirm transaction</h1>
+<h1 mat-dialog-title i18n="confirmation dialog header@@confirmation-dialog.header">Confirm transaction</h1>
 <div mat-dialog-content>
-  <p>From: {{transaction.transaction.type}}</p>
-  <p>To: {{transaction.merchant.name}}</p>
-  <p>Amount: {{transaction.transaction | parseAmount | currency}}</p>
+  <p i18n="from account@@confirmation-dialog.content.from">From: {{transaction.transaction.type}}</p>
+  <p i18n="to account@@confirmation-dialog.content.to">To: {{transaction.merchant.name}}</p>
+  <p i18n="amount@@confirmation-dialog.content.amount">Amount: {{transaction.transaction | parseAmount | currency}}</p>
 </div>
 <div mat-dialog-actions>
   <div class="buttons-group">
-    <button class="button" (click)="cancel()">Cancel</button>
-    <button class="button" (click)="transfer()">Transfer</button>
+    <button class="button" (click)="cancel()" i18n="cancel button@@confirmation-dialog.content.cancel">Cancel</button>
+    <button class="button" (click)="transfer()" i18n="transfer button@@confirmation-dialog.content.transfer">Transfer</button>
   </div>
 </div>
