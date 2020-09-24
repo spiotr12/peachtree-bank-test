@@ -1,0 +1,17 @@
+<form>
+  <div class="form__group form__group--stretch">
+    <label class="form__label" for="FromAccount">From account</label>
+    <input class="form__field" id="FromAccount" placeholder="SOME TEXT">
+  </div>
+  <div class="form__group form__group--stretch">
+    <label class="form__label" for="ToAccount">To account</label>
+    <input class="form__field" id="ToAccount" placeholder="SOME TEXT">
+  </div>
+  <div class="form__group form__group--stretch">
+    <label class="form__label" for="Amount">Amount</label>
+    <input class="form__field" id="Amount" type="number" step="0.01" min="0" [placeholder]="0.00 | currency">
+  </div>
+  <div class="pbt-transfer-form__row">
+    <button class="pbt-transfer-form__submit-button">Submit</button>
+  </div>
+</form>

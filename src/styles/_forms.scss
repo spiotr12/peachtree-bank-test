@@ -1,0 +1,43 @@
+@mixin resetButtonDefaults() {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.form {
+  &__group {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    &--stretch {
+      width: 100%;
+
+      .form__field,
+      .form__label {
+        width: 100%;
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .7rem;
+  }
+
+  &__field {
+    display: block;
+    @include resetButtonDefaults();
+
+    line-height: 1.5rem;
+    border-bottom: 1px solid #d6d2ce;
+  }
+}

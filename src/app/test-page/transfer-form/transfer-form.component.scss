@@ -1,0 +1,20 @@
+:host.pbt-transfer-form {
+  display: block;
+  padding: 1.5rem 1rem;
+}
+
+.pbt-transfer-form {
+  &__row {
+    width: 100%;
+    text-align: right;
+  }
+
+  &__submit-button {
+    border: none;
+    padding: .5rem 3rem;
+    background-color: #ee7033;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 4px;
+  }
+}

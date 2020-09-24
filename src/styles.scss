@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/reset';
 
+@use 'styles/buttons';
+@use 'styles/forms';
+
 html,
 body {
   height: 100%;
   font-family: Roboto, monospace, serif;
+  overflow: hidden;
 }
 
 body {
