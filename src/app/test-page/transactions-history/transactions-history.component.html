@@ -26,5 +26,5 @@
                              [image]="'assets/beneficiaries-icons/' + (transaction?.merchant?.name | nameToImage)"
                              [beneficiary]="transaction?.merchant.name"
                              [paymentType]="transaction?.transaction?.type"
-                             [amount]="transaction?.transaction?.amountCurrency?.amount"></pbt-transaction-list-item>
+                             [amount]="transaction?.transaction | parseAmount"></pbt-transaction-list-item>
 </div>

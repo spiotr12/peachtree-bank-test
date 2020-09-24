@@ -1,7 +1,7 @@
 <div class="pbt-transaction-list-item__row">
   <div class="pbt-transaction-list-item__color" [style.background-color]="color"></div>
   <div class="pbt-transaction-list-item__date">{{date | date}}</div>
-  <div class="pbt-transaction-list-item__image"><img *ngIf="image" [src]="image"></div>
+  <div class="pbt-transaction-list-item__image"><img [src]="image"></div>
   <div class="pbt-transaction-list-item__label">
     <span class="pbt-transaction-list-item__beneficiary">{{beneficiary}}</span>
     <span class="pbt-transaction-list-item__payment-type">{{paymentType}}</span>

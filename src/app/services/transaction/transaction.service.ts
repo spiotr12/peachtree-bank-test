@@ -60,10 +60,7 @@ export class TransactionService {
 
   private mapTransaction(transaction: ITransactionRecord | any): ITransactionRecord {
     // Map transaction date to Date
-    transaction.dates.valueDate = new Date(transaction.dates.valueDate);
-    // Map amount to number
-    const amountMod = transaction.transaction.creditDebitIndicator === 'DBIT' ? -1 : 1;
-    transaction.transaction.amountCurrency.amount = amountMod * Number(transaction.transaction.amountCurrency.amount);
+    // transaction.dates.valueDate = new Date(transaction.dates.valueDate);
     return transaction;
   }
 }

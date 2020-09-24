@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NameToImagePipe implements PipeTransform {
 
-  transform(name: string, ...args: unknown[]): unknown {
+  transform(name: string, ...args: unknown[]): string {
     return name.toLowerCase().replace(/\s/g, '-').concat('.png');
   }
 
