@@ -28,7 +28,7 @@ export class TransactionService {
         valueDate: new Date(),
       },
       transaction: {
-        type: 'Card Payment',
+        type: data.fromAccount,
         creditDebitIndicator: 'DBIT',
         amountCurrency: {
           amount: data.amount,

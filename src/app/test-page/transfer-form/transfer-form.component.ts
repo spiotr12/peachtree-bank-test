@@ -24,7 +24,7 @@ export class TransferFormComponent {
   public readonly balance$: Observable<number>;
 
   public readonly form: FormGroup = new FormGroup({
-    fromAccount: new FormControl(null, { validators: [Validators.required] }),
+    fromAccount: new FormControl('Free Checking', { validators: [Validators.required] }),
     toAccount: new FormControl(null, { validators: [Validators.required] }),
     amount: new FormControl(null, { validators: [Validators.required, Validators.min(0)] }),
   });

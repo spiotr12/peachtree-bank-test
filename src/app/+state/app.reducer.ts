@@ -7,7 +7,7 @@ export const APP_STORE_KEY = 'app';
 
 const initialState: IAppStore = {
   transactions: null,
-  sortDirection: 0,
+  sortDirection: 1,
   sortField: null,
 };
 
