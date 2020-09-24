@@ -1,22 +1,26 @@
 <div class="pbt-transactions-history__toolbar">
   <div>
     <div class="form__group">
-      <input class="form__field" id="ToAccount" [formControl]="searchField" placeholder="Search by typing...">
+      <input class="form__field" id="ToAccount" [formControl]="searchField" placeholder="Search by typing..."
+             i18n-placeholder="search placeholder@@transaction-history.search.placeholder">
     </div>
     <span *ngIf="searchField.value" class="pbt-transactions-history__search-reset-button" (click)="resetSearch()">&#9587;</span>
   </div>
   <span class="spacer"></span>
-  <span class="pbt-transactions-history__sort-label">Sort by</span>
+  <span class="pbt-transactions-history__sort-label" i18n="sort by label@@transaction-history.sort-by">Sort by</span>
   <div class="buttons-group">
-    <button class="button" (click)="sort(SortField.Date)">Date
+    <button class="button" (click)="sort(SortField.Date)">
+      <span i18n="(sort by) date@@transaction-history.sort-by.date">Date</span>
       <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Date"
                           [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
     </button>
-    <button class="button" (click)="sort(SortField.Beneficiary)">Beneficiary
+    <button class="button" (click)="sort(SortField.Beneficiary)">
+      <span i18n="(sort by) beneficiary@@transaction-history.sort-by.beneficiary">Beneficiary</span>
       <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Beneficiary"
                           [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
     </button>
-    <button class="button" (click)="sort(SortField.Amount)">Amount
+    <button class="button" (click)="sort(SortField.Amount)">
+      <span i18n="(sort by) amount@@transaction-history.sort-by.amount">Amount</span>
       <pbt-sort-indicator *ngIf="(this.sort$ | async)?.sortField === SortField.Amount"
                           [sort]="(this.sort$ | async)?.sortDirection"></pbt-sort-indicator>
     </button>

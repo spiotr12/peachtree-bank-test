@@ -72,5 +72,86 @@
         <target>Transfer</target>
       </segment>
     </unit>
+    <unit id="transaction-history.search.placeholder">
+      <notes>
+        <note category="description">search placeholder</note>
+      </notes>
+      <segment>
+        <source>Search by typing...</source>
+        <target>Search by typing...</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by">
+      <notes>
+        <note category="description">sort by label</note>
+      </notes>
+      <segment>
+        <source>Sort by</source>
+        <target>Sort by</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.date">
+      <notes>
+        <note category="description">(sort by) date</note>
+      </notes>
+      <segment>
+        <source>Date</source>
+        <target>Date</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.beneficiary">
+      <notes>
+        <note category="description">(sort by) beneficiary</note>
+      </notes>
+      <segment>
+        <source>Beneficiary</source>
+        <target>Beneficiary</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.amount">
+      <notes>
+        <note category="description">(sort by) amount</note>
+      </notes>
+      <segment>
+        <source>Amount</source>
+        <target>Amount</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.from-account.label">
+      <notes>
+        <note category="description">from account label</note>
+      </notes>
+      <segment>
+        <source>From account</source>
+        <target>From account</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.to-account.label">
+      <notes>
+        <note category="description">to account label</note>
+      </notes>
+      <segment>
+        <source>To account</source>
+        <target>To account</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.amountt.label">
+      <notes>
+        <note category="description">amount label</note>
+      </notes>
+      <segment>
+        <source>Amount</source>
+        <target>Amount</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.submit.button">
+      <notes>
+        <note category="description">submit button</note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Submit</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

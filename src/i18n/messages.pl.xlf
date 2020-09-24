@@ -1,3 +1,4 @@
+
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="pl">
   <file original="ng.template" id="ngi18n">
     <unit id="test-page.make-a-transfer.title">
@@ -20,6 +21,56 @@
         <target>Ostatnie tranzakcje</target>
       </segment>
     </unit>
+    <unit id="transaction-history.search.placeholder">
+      <notes>
+        <note category="description">search placeholder</note>
+        <note category="location">src/app/test-page/transactions-history/transactions-history.component.html:4</note>
+      </notes>
+      <segment state="initial">
+        <source>Search by typing...</source>
+        <target>Sukaj...</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by">
+      <notes>
+        <note category="description">sort by label</note>
+        <note category="location">src/app/test-page/transactions-history/transactions-history.component.html:10</note>
+      </notes>
+      <segment state="initial">
+        <source>Sort by</source>
+        <target>Sortuj</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.date">
+      <notes>
+        <note category="description">(sort by) date</note>
+        <note category="location">src/app/test-page/transactions-history/transactions-history.component.html:13</note>
+      </notes>
+      <segment state="initial">
+        <source>Date</source>
+        <target>Data</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.beneficiary">
+      <notes>
+        <note category="description">(sort by) beneficiary</note>
+        <note category="location">src/app/test-page/transactions-history/transactions-history.component.html:18</note>
+      </notes>
+      <segment state="initial">
+        <source>Beneficiary</source>
+        <target>Odbiorca</target>
+      </segment>
+    </unit>
+    <unit id="transaction-history.sort-by.amount">
+      <notes>
+        <note category="description">(sort by) amount</note>
+        <note category="location">src/app/test-page/transactions-history/transactions-history.component.html:23</note>
+      </notes>
+      <segment state="initial">
+        <source>Amount</source>
+        <target>Kwota</target>
+      </segment>
+    </unit>
     <unit id="confirmation-dialog.header">
       <notes>
         <note category="description">confirmation dialog header</note>
@@ -37,6 +88,7 @@
       </notes>
       <segment state="initial">
         <source>
+          Amount:
           <ph id="0" equiv="INTERPOLATION" disp="{{transaction.transaction.type}}"/>
         </source>
         <target>
@@ -93,6 +145,46 @@
       <segment state="initial">
         <source>Transfer</source>
         <target>Transferuj</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.from-account.label">
+      <notes>
+        <note category="description">from account label</note>
+        <note category="location">src/app/test-page/transfer-form/transfer-form.component.html:3</note>
+      </notes>
+      <segment state="initial">
+        <source>From account</source>
+        <target>Z konta</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.to-account.label">
+      <notes>
+        <note category="description">to account label</note>
+        <note category="location">src/app/test-page/transfer-form/transfer-form.component.html:7</note>
+      </notes>
+      <segment state="initial">
+        <source>To account</source>
+        <target>Do konta</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.amountt.label">
+      <notes>
+        <note category="description">amount label</note>
+        <note category="location">src/app/test-page/transfer-form/transfer-form.component.html:11</note>
+      </notes>
+      <segment state="initial">
+        <source>Amount</source>
+        <target>Kwota</target>
+      </segment>
+    </unit>
+    <unit id="transfer-form.submit.button">
+      <notes>
+        <note category="description">submit button</note>
+        <note category="location">src/app/test-page/transfer-form/transfer-form.component.html:15</note>
+      </notes>
+      <segment state="initial">
+        <source>Submit</source>
+        <target>Wyślij</target>
       </segment>
     </unit>
   </file>
