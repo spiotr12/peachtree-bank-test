@@ -1,6 +1,9 @@
 <div class="pbt-transactions-history__toolbar">
-  <div class="form__group">
-    <input class="form__field" id="ToAccount" [formControl]="searchField" placeholder="Search by typing...">
+  <div>
+    <div class="form__group">
+      <input class="form__field" id="ToAccount" [formControl]="searchField" placeholder="Search by typing...">
+    </div>
+    <span *ngIf="searchField.value" class="pbt-transactions-history__search-reset-button" (click)="resetSearch()">&#9587;</span>
   </div>
   <span class="spacer"></span>
   <span class="pbt-transactions-history__sort-label">Sort by</span>

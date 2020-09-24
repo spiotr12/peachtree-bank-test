@@ -46,7 +46,7 @@ As a user I should be able to:
 2. ~~See the transactions list updated with the new transaction when a new money transfer has taken place.~~
 3. ~~Filter the transactions list by typing a keyword in the Search field.~~
     - ~~The transactions list should update immediately at every keystroke.~~
-4. Clear the filter by clicking an 'x' icon in the Search field.
+4. ~~Clear the filter by clicking an 'x' icon in the Search field.~~
 4. ~~Sort the transactions list by Date, Beneficiary and Amount.~~
 
 Non-functional requirements (bonus points):

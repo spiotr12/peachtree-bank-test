@@ -23,6 +23,10 @@
     }
   }
 
+  &__search-reset-button {
+    cursor: pointer;
+  }
+
   &__sort-label {
     font-size: .7rem;
     font-weight: bold;

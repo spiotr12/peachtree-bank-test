@@ -51,4 +51,8 @@ export class TransactionsHistoryComponent {
       this.store.dispatch(AppActions.sortTransactions({ sortField, sortDirection: direction }));
     });
   }
+
+  public resetSearch(): void {
+    this.searchField.reset();
+  }
 }
