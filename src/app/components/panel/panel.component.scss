@@ -4,6 +4,22 @@
   min-width: 250px;
 
   box-shadow: 0 0 1px 1px #00000020;
+
+  &--big-header {
+    .pbt-panel__header {
+      padding: 1rem;
+    }
+
+    .pbt-panel__header-icon {
+      img {
+        height: 1.2rem;
+      }
+    }
+
+    .pbt-panel__header-title {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .pbt-panel {
