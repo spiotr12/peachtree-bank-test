@@ -1,6 +1,10 @@
 :host.pbt-transactions-history {
-  display: block;
-  padding: 1.5rem 1rem;
+  $padding-v: 1.5rem;
+
+  height: calc(100% - #{$padding-v} * 2);
+  display: flex;
+  flex-direction: column;
+  padding: $padding-v 1rem;
 }
 
 .pbt-transactions-history {
@@ -26,5 +30,6 @@
   }
 
   &__list {
+    overflow: auto;
   }
 }

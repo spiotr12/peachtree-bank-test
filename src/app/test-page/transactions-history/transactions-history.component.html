@@ -11,6 +11,10 @@
   </div>
 </div>
 <div class="pbt-transactions-history__list">
-  <pbt-transaction-list-item color="red" image="aaa" beneficiary="The tea lonfsd" paymentType="Card Payment"
-                             amount="123.43"></pbt-transaction-list-item>
+  <pbt-transaction-list-item *ngFor="let transaction of transactions$ | async"
+                             [color]="transaction?.categoryCode"
+                             [image]="null"
+                             [beneficiary]="transaction?.merchant.name"
+                             [paymentType]="transaction?.transaction?.type"
+                             [amount]="transaction?.transaction?.amountCurrency?.amount"></pbt-transaction-list-item>
 </div>

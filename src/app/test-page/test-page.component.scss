@@ -17,9 +17,19 @@
   &__history {
     margin-left: 2rem;
     flex-grow: 1;
+    max-height: 100%;
+    overflow: hidden;
 
-    pbt-panel{
+    pbt-panel {
       width: 100%;
+      height: 100%;
+
+      ::ng-deep {
+        .pbt-panel__body {
+          height: 100%;
+          overflow: hidden;
+        }
+      }
     }
   }
 }
