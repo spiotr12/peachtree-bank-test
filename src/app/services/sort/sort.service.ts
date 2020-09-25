@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITransactionRecord, SortField } from 'src/app/models';
+import { ParseAmountPipe } from 'src/app/pipes/parse-amount';
 
 
 /**
@@ -10,7 +11,7 @@ import { ITransactionRecord, SortField } from 'src/app/models';
 })
 export class SortService {
 
-  constructor() { }
+  constructor(private parseAmountPipe: ParseAmountPipe) { }
 
   /**
    * Sort transaction by given field
@@ -40,7 +41,7 @@ export class SortService {
    * Sort transaction by beneficiary
    */
   private sortByBeneficiary(sort: number, transactions: ITransactionRecord[]): ITransactionRecord[] {
-    return transactions.sort((a, b) => a?.merchant?.name.localeCompare(b?.merchant?.name) * sort);
+    return transactions.sort((a, b) => (a?.merchant?.name.localeCompare(b?.merchant?.name)) * sort);
   }
 
   /**
@@ -48,7 +49,7 @@ export class SortService {
    */
   private sortByAmount(sort: number, transactions: ITransactionRecord[]): ITransactionRecord[] {
     return transactions.sort((a, b) => {
-      return a.transaction.amountCurrency.amount - b.transaction.amountCurrency.amount * sort;
+      return (this.parseAmountPipe.transform(a.transaction) - this.parseAmountPipe.transform(b.transaction)) * sort;
     });
   }
 

@@ -9,6 +9,7 @@ import { AppEffects, reducerProvider, REDUCERS_TOKEN } from './+state';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ParseAmountPipe } from 'src/app/pipes';
 
 
 @NgModule({
@@ -26,7 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       logOnly: environment.production,
     }),
   ],
-  providers: [reducerProvider],
+  providers: [
+    reducerProvider,
+    ParseAmountPipe,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransactionsHistoryComponent } from './transactions-history.component';
+import { provideMockStore } from '@ngrx/store/testing';
+
 
 describe('TransactionsHistoryComponent', () => {
   let component: TransactionsHistoryComponent;
@@ -8,9 +10,12 @@ describe('TransactionsHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionsHistoryComponent ]
+      declarations: [TransactionsHistoryComponent],
+      providers: [
+        provideMockStore(),
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestPageComponent } from 'src/app/test-page/test-page.component';
+import { provideMockStore } from '@ngrx/store/testing';
+
 
 describe('TestPageComponent', () => {
   let component: TestPageComponent;
@@ -8,9 +10,12 @@ describe('TestPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestPageComponent ]
+      declarations: [TestPageComponent],
+      providers: [
+        provideMockStore(),
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
