@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransactionsHistoryComponent } from './transactions-history.component';
 import { provideMockStore } from '@ngrx/store/testing';
+import { APP_STORE_KEY } from 'src/app/+state';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 describe('TransactionsHistoryComponent', () => {
@@ -12,8 +14,17 @@ describe('TransactionsHistoryComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [TransactionsHistoryComponent],
       providers: [
-        provideMockStore(),
+        provideMockStore({
+          initialState: {
+            [APP_STORE_KEY]: {
+              transactions: [],
+              sortDirection: 1,
+              sortField: null,
+            },
+          },
+        }),
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
       .compileComponents();
   });

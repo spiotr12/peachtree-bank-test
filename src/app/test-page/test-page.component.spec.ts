@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestPageComponent } from 'src/app/test-page/test-page.component';
 import { provideMockStore } from '@ngrx/store/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 describe('TestPageComponent', () => {
@@ -14,6 +15,7 @@ describe('TestPageComponent', () => {
       providers: [
         provideMockStore(),
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
       .compileComponents();
   });

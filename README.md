@@ -2,13 +2,13 @@
 
 Run as normal angular app `npm run start`
 
-To get localized version run `npm run serve-<lang-code>`
+To get localized version run `npm run serve-[pl | en]`
 
 ## Build
 
 Build as normal angular app `npm run start`
 
-To get localized version run `npm run build-<lang-code>`
+To get localized version run `npm run build-[pl | en]`
 
 ## Test
 
