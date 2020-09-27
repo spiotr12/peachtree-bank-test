@@ -17,7 +17,7 @@ export interface ISort {
 @Injectable()
 export class AppEffects {
 
-  public onSort = createEffect(() => this.actions$.pipe(
+  public onSort$ = createEffect(() => this.actions$.pipe(
     ofType(AppActionTypes.SortTransactions),
     withLatestFrom(this.store.select(FromAppState.getTransactions)),
     mergeMap(([action, transactions]: [ISort, ITransactionRecord[]]) => {
