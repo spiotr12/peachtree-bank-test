@@ -47,7 +47,7 @@ export class TransactionsHistoryComponent {
     this.sort$.pipe(
       take(1),
     ).subscribe((sort) => {
-      const direction = sort.sortField === sortField ? sort.sortDirection * -1 : sort.sortDirection;
+      const direction = sort.sortField === sortField ? sort.sortDirection * -1 : sort.sortDirection || 1;
       this.store.dispatch(AppActions.sortTransactions({ sortField, sortDirection: direction }));
     });
   }

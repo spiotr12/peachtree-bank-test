@@ -43,7 +43,7 @@ describe('appReducer', () => {
     const resultState = appReducer(state, AppActions.resetSort());
     // Assert
     expect(resultState.sortDirection).toBeDefined();
-    expect(resultState.sortDirection).toEqual(1);
+    expect(resultState.sortDirection).toBeNull();
     expect(resultState.sortField).toBeDefined();
     expect(resultState.sortField).toBeNull();
   });
