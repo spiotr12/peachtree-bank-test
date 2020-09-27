@@ -12,7 +12,7 @@ export class FromAppState {
    */
   public static getTransactions = createSelector(
     featureSelector,
-    (state) => state.transactions,
+    (state) => state?.transactions || null,
   );
 
   /**
@@ -20,7 +20,7 @@ export class FromAppState {
    */
   public static getSort = createSelector(
     featureSelector,
-    (state) => ({ sortField: state.sortField, sortDirection: state.sortDirection }),
+    (state) => ({ sortField: state?.sortField || null, sortDirection: state?.sortDirection || null }),
   );
 
   /**

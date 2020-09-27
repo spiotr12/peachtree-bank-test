@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 import { ITransactionRecord } from 'src/app/models';
 import { AppActions, FromAppState } from 'src/app/+state';
@@ -15,7 +15,10 @@ export class TransactionService {
   constructor(private store: Store) { }
 
   public getTransactions(): Observable<ITransactionRecord[]> {
-    return of([...jsonTransactions.data] as any[]);
+    return this.store.select(FromAppState.getTransactions).pipe(
+      take(1),
+      map((transactions) => transactions ? transactions : [...jsonTransactions.data] as any[]),
+    );
   }
 
   public createTransaction(transaction: ITransactionRecord): Observable<ITransactionRecord> {

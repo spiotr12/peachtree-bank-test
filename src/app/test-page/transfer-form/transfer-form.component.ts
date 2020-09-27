@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { FromAppState } from 'src/app/+state';
+import { AppActions, FromAppState } from 'src/app/+state';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { accountOverdraftLimitAsyncValidator } from 'src/app/validators';
 import { TransactionService } from 'src/app/services/transaction';
@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog';
 import { switchMap } from 'rxjs/operators';
 
+
+const hardcodedFromAccount = 'Free Checking';
 
 /**
  * Component that handles transfer form
@@ -28,7 +30,7 @@ export class TransferFormComponent {
   public readonly balance$: Observable<number>;
 
   public readonly form: FormGroup = new FormGroup({
-    fromAccount: new FormControl('Free Checking', { validators: [Validators.required] }),
+    fromAccount: new FormControl(hardcodedFromAccount, { validators: [Validators.required] }),
     toAccount: new FormControl(null, { validators: [Validators.required] }),
     amount: new FormControl(null, { validators: [Validators.required, Validators.min(0)] }),
   });
@@ -52,9 +54,20 @@ export class TransferFormComponent {
       });
 
       confirmDialog.afterClosed().pipe(
-        switchMap((result) => result ? this.transactionService.createTransaction(transaction) : of()),
-      ).subscribe((result) => {
-        if (result) { this.form.reset(); }
+        switchMap((result: boolean) => result
+          ? this.transactionService.createTransaction(transaction).pipe(
+            // Load transaction (simulate load state from backend)
+            switchMap(() => this.transactionService.getTransactions()),
+          )
+          : of(null),
+        ),
+      ).subscribe((transactions) => {
+        if (transactions !== null) {
+          this.form.reset({ fromAccount: hardcodedFromAccount });
+          // This action is dispatched twice as the transaction service simulates the backed and updates the store as well
+          // However this would be the actual store update on frontend.
+          this.store.dispatch(AppActions.loadTransactions({ transactions }));
+        }
       });
     } else {
       alert('form invalid');

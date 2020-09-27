@@ -1,9 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { TransactionService } from './transaction.service';
-import { provideMockStore } from '@ngrx/store/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { ITransactionRecord } from 'src/app/models';
-import { Store } from '@ngrx/store';
 import { APP_STORE_KEY, AppActions } from 'src/app/+state';
 
 
@@ -16,7 +15,7 @@ describe('TransactionService', () => {
         provideMockStore({
           initialState: {
             [APP_STORE_KEY]: {
-              transactions: [],
+              transactions: null,
               sortDirection: 1,
               sortField: null,
             },
@@ -46,14 +45,15 @@ describe('TransactionService', () => {
   });
 
   describe('createTransaction', () => {
-    let store: Store;
+    let store: MockStore;
     beforeEach(() => {
-      store = TestBed.inject(Store);
+      store = TestBed.inject(MockStore);
     });
 
     it('should dispatch action', (done) => {
       // Arrange
       spyOn(store, 'dispatch').and.callThrough();
+      store.setState({ [APP_STORE_KEY]: { transactions: [] } });
       const transaction: ITransactionRecord = {} as any;
       // Act
       service.createTransaction(transaction).subscribe((t) => {
@@ -67,6 +67,7 @@ describe('TransactionService', () => {
 
     it('should take latest transactions from the store', (done) => {
       // Arrange
+      store.setState({ [APP_STORE_KEY]: { transactions: [] } });
       spyOn(store, 'select').and.callThrough();
       const transaction: ITransactionRecord = {} as any;
       // Act
