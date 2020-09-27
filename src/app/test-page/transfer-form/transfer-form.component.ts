@@ -62,7 +62,7 @@ export class TransferFormComponent {
           : of(null),
         ),
       ).subscribe((transactions) => {
-        if (transactions !== null) {
+        if (transactions) {
           this.form.reset({ fromAccount: hardcodedFromAccount });
           // This action is dispatched twice as the transaction service simulates the backed and updates the store as well
           // However this would be the actual store update on frontend.
@@ -70,7 +70,7 @@ export class TransferFormComponent {
         }
       });
     } else {
-      alert('form invalid');
+      alert('Form invalid');
     }
   }
 

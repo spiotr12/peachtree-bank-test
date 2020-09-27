@@ -10,7 +10,7 @@ describe('appReducer', () => {
   beforeEach(() => {
     state = {
       transactions: null,
-      sortDirection: 1,
+      sortDirection: null,
       sortField: null,
     };
   });

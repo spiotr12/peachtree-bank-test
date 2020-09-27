@@ -25,7 +25,7 @@ describe('AppEffects', () => {
           initialState: {
             [APP_STORE_KEY]: {
               transactions: null,
-              sortDirection: 1,
+              sortDirection: null,
               sortField: null,
             },
           },
