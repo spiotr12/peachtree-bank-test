@@ -22,6 +22,21 @@ describe('SortService', () => {
   });
 
   describe('sortTransactions', () => {
+    it('should return transactions when sortField is null', () => {
+      // Arrange
+      const transactions: ITransactionRecord[] = [
+        { dates: { valueDate: new Date('2020-03-10') }, id: 1 } as any,
+        { dates: { valueDate: new Date('2020-04-12') }, id: 2 } as any,
+        { dates: { valueDate: new Date('2020-02-01') }, id: 3 } as any,
+        { dates: { valueDate: new Date('2020-09-30') }, id: 4 } as any,
+      ];
+      const correctOrder = [1, 2, 3, 4];
+      // Act
+      const result = service.sortTransactions(null, 1, transactions);
+      // Assert
+      expect(result.map((t: any) => t.id)).toEqual(correctOrder);
+    });
+
     it('should sort transactions by date asc', () => {
       // Arrange
       const transactions: ITransactionRecord[] = [
