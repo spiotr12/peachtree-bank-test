@@ -17,7 +17,7 @@ export class TransactionService {
   public getTransactions(): Observable<ITransactionRecord[]> {
     return this.store.select(FromAppState.getTransactions).pipe(
       take(1),
-      map((transactions) => transactions ? transactions : [...jsonTransactions.data] as any[]),
+      map((transactions) => transactions ? transactions : [...jsonTransactions.data].map((t) => this.parseTransactionRecord(t))),
     );
   }
 
@@ -34,5 +34,14 @@ export class TransactionService {
       }),
       map(() => transaction),
     );
+  }
+
+  /**
+   * Parse data (mainly from mocked data)
+   * Fixes dates
+   */
+  private parseTransactionRecord(record: ITransactionRecord | any): ITransactionRecord {
+    record.dates.valueDate = new Date(record.dates.valueDate);
+    return record;
   }
 }
