@@ -31,11 +31,14 @@ src/
                       - includes partial components
                       - includes confirmation dialog
     validators/     - form validators
-
 ```
 
 ## Notes
 
+1. Responsiveness
+    - App is responsive but minimum supported (and recommended) resolution is 1024 x 720
+1. Redux / `@ngrx/store`
+    - Used to keep state and helps on mocking the backend (sorting and adding transactions)
 1. `@angular/material`
     - Used only for Confirmation Dialog
     - Not used for anything else as the requirement was not to use css frameworks. Obviously `@angular/material` 
@@ -45,3 +48,4 @@ src/
 1. `scripts/` directory
     - `scripts/` directory contains helpful utils created by myself (for other project used for generating and 
     merging i18n translations. Please do not copy those.
+1. Test coverage score 100%
