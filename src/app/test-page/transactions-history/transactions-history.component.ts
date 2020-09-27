@@ -40,6 +40,7 @@ export class TransactionsHistoryComponent {
         return search ? this.searchService.filterTransactions(search, transactions) : transactions;
       }),
     );
+
     this.sort$ = this.store.select(FromAppState.getSort);
   }
 
